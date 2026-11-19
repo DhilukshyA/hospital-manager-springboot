@@ -2,7 +2,6 @@ package com.example.hospital_manager.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,19 +9,25 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "doctor_id")
     private AppUser doctor;
 
+    @Column(nullable = false)
     private LocalDateTime appointmentDate;
+
+    private String reason;
 
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status;

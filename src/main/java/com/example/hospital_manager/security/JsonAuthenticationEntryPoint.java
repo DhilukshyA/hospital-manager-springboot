@@ -1,4 +1,4 @@
-package com.example.hospitalmanager.security;
+package com.example.hospital_manager.security;
 
 public class JsonAuthenticationEntryPoint {
 

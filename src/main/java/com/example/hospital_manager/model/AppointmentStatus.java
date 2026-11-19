@@ -1,7 +1,7 @@
-package com.example.hospitalmanager.model;
+package com.example.hospital_manager.model;
 
 public enum AppointmentStatus {
-    SCHEDULED,
-    COMPLETED,
-    CANCELLED
+    SCHEDULED, 
+COMPLETED, 
+CANCELLED
 }

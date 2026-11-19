@@ -1,14 +1,16 @@
-package com.example.hospitalmanager.model;
+package com.example.hospital_manager.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Patient {
 
     @Id
@@ -18,7 +20,18 @@ public class Patient {
     @NotBlank
     private String name;
 
+    @Email
+    @NotBlank
+    private String email;
+
+    @NotBlank
     private String phone;
 
-    private String email;
+    private LocalDate dateOfBirth;
+
+    private String address;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true)
+    private AppUser user;
 }

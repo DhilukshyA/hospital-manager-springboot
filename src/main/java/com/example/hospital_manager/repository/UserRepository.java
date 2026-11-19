@@ -1,11 +1,8 @@
-package com.example.hospitalmanager.repository;
+package com.example.hospital_manager.repository;
 
-import com.example.hospitalmanager.model.AppUser;
-import com.example.hospitalmanager.model.Role;
+import com.example.hospital_manager.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface UserRepository extends JpaRepository<AppUser, Long> {
 

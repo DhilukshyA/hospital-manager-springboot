@@ -1,3 +1,4 @@
+
 package com.example.hospital_manager.config;
 
 import com.example.hospital_manager.model.*;
@@ -23,30 +24,27 @@ public class DataLoader {
 
             if (userRepository.count() == 0) {
 
-                AppUser admin = createUser("admin",
-                        "Admin@123", Role.ADMIN);
+                AppUser admin = createUser(
+                        "admin", "Admin@123", Role.ADMIN);
 
-                AppUser doctor = createUser("doctor",
-                        "Doctor@123", Role.DOCTOR);
+                AppUser doctor = createUser(
+                        "doctor", "Doctor@123", Role.DOCTOR);
 
-                AppUser patientUser = createUser("patient",
-                        "Patient@123", Role.PATIENT);
+                AppUser patientUser = createUser(
+                        "patient", "Patient@123", Role.PATIENT);
 
-                createUser("nurse",
-                        "Nurse@123", Role.NURSE);
+                AppUser nurse = createUser(
+                        "nurse", "Nurse@123", Role.NURSE);
 
-                createUser("receptionist",
-                        "Reception@123", Role.RECEPTIONIST);
+                AppUser receptionist = createUser(
+                        "receptionist", "Reception@123",
+                        Role.RECEPTIONIST);
 
                 userRepository.save(admin);
                 userRepository.save(doctor);
                 userRepository.save(patientUser);
-
-                userRepository.save(
-                        userRepository.findByUsername("nurse").orElseThrow());
-
-                userRepository.save(
-                        userRepository.findByUsername("receptionist").orElseThrow());
+                userRepository.save(nurse);
+                userRepository.save(receptionist);
 
                 Patient patient = Patient.builder()
                         .name("John Smith")
